@@ -147,7 +147,7 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--cre
 <section class="hero">
   <div class="hero-pill">For real estate agents</div>
   <h1>Give your clients a closing gift <span>they'll actually use.</span></h1>
-  <p class="hero-sub">Share this link with your buyers and they'll get up to $150 towards rekeying their locks — on you, powered by HouseAccount.</p>
+  <p class="hero-sub">Share this link with your homeowners and they'll get up to $150 towards rekeying their locks — on you, powered by HouseAccount.</p>
 </section>
 
 <!-- OFFER SUMMARY -->
@@ -181,8 +181,8 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--cre
         <div class="offer-tile-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h4>Scheduled around the move</h4>
-        <p>Installation is booked around your client's move-in date, zero stress.</p>
+        <h4>Booked around their schedule</h4>
+        <p>Service is booked when it's most convenient for the homeowner</p>
       </div>
     </div>
   </div>
@@ -191,11 +191,11 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--cre
 
 <!-- AGENT SIGN-UP -->
 <section class="share" style="background:var(--cream);padding:64px 24px;">
-  <div style="max-width:520px;margin:0 auto;">
+  <div style="max-width:680px;margin:0 auto;">
 
     <!-- SHARE WITH BUYERS -->
     <div style="background:#fff;border:1.5px solid #dde6ec;border-radius:16px;padding:28px 32px;margin-bottom:24px;">
-      <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b8699;margin-bottom:14px;">Share this with your buyers</p>
+      <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b8699;margin-bottom:14px;">Share this with your homeowners</p>
 
       <div style="background:var(--cream);border:1.5px solid #dde6ec;border-radius:10px;padding:14px 16px;margin-bottom:12px;">
         <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b8699;margin-bottom:5px;">Text code</p>
@@ -209,55 +209,6 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--cre
       </div>
 
       <button onclick="navigator.clipboard.writeText('TX-REKEY: Text TX-REKEY to 267-262-5848 or visit https://tx-rekey.houseaccount.co');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy sharing info',2000)" style="width:100%;padding:11px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">Copy sharing info</button>
-    </div>
-
-    <div class="eyebrow" style="text-align:center;margin-bottom:10px;">Get set up</div>
-    <h2 style="text-align:center;font-size:clamp(22px,3vw,30px);margin-bottom:8px;color:var(--navy);">Start offering this to your buyers</h2>
-    <p style="text-align:center;color:var(--muted);font-size:15px;line-height:1.65;margin-bottom:32px;">Fill in your info and a HouseAccount partner will reach out to get you set up. Takes 2 minutes.</p>
-
-    <div style="background:#fff;border:1.5px solid #dde6ec;border-radius:16px;padding:32px;">
-      <div id="agent-form-wrap">
-        <form id="agent-form" name="agent-signup-tx-rekey" data-netlify="true">
-          <input type="hidden" name="form-name" value="agent-signup-tx-rekey">
-          <input type="hidden" name="market" value="TX-REKEY">
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
-            <div>
-              <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">First name</label>
-              <input type="text" name="first-name" placeholder="Jane" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
-            </div>
-            <div>
-              <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Last name</label>
-              <input type="text" name="last-name" placeholder="Smith" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
-            </div>
-          </div>
-
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Email</label>
-            <input type="email" name="email" placeholder="jane@brokerage.com" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
-          </div>
-
-          <div style="margin-bottom:14px;">
-            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Phone</label>
-            <input type="tel" name="phone" placeholder="(555) 000-0000" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
-          </div>
-
-          <div style="margin-bottom:22px;">
-            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Brokerage</label>
-            <input type="text" name="brokerage" placeholder="Keller Williams, Compass, Side..." required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
-          </div>
-
-          <button type="submit" style="width:100%;padding:15px;background:var(--navy);color:#fff;font-size:16px;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.01em;">
-            Get me set up
-          </button>
-          <p style="text-align:center;font-size:12px;color:#aab8c2;margin-top:10px;">We'll reach out within 1 business day. No spam, ever.</p>
-        </form>
-      </div>
-      <div id="agent-success" style="display:none;text-align:center;padding:24px 0;">
-        <div style="font-size:32px;margin-bottom:12px;">&#10003;</div>
-        <h3 style="color:var(--navy);font-size:20px;margin-bottom:8px;">You're on the list!</h3>
-        <p style="color:var(--muted);font-size:15px;line-height:1.6;">A HouseAccount partner will reach out within 1 business day to get you set up with the TX rekey offer.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -306,59 +257,6 @@ body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--cre
   <p>Questions? hello@houseaccount.com &nbsp;·&nbsp; houseaccount.com</p>
 </footer>
 
-<!-- Netlify Forms detection -->
-<form name="agent-signup-tx-rekey" data-netlify="true" hidden>
-  <input name="name">
-  <input name="email">
-  <input name="brokerage">
-  <input name="phone">
-  <input name="source">
-</form>
 
-<script>
-// ── SINGLE SOURCE OF TRUTH, paste your Netlify URL here ──
-var OFFER_URL = 'https://tx-rekey.houseaccount.co/'
-
-document.getElementById('display-url').textContent = OFFER_URL;
-
-function copyLink() {
-  navigator.clipboard.writeText(OFFER_URL).then(function () {
-    var el = document.getElementById('copy-confirm');
-    el.classList.add('show');
-    setTimeout(function () { el.classList.remove('show'); }, 2000);
-  });
-}
-
-function downloadQR() {
-  var link = document.createElement('a');
-  link.download = 'houseaccount-tx-rekey-qr.png';
-  link.href = 'https://api.qrserver.com/v1/create-qr-code/?size=400x400&color=133C55&data=' + encodeURIComponent(OFFER_URL);
-  link.target = '_blank';
-  link.click();
-}
-
-
-document.getElementById('agent-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  try {
-    const res = await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
-    });
-    if (res.ok) {
-      document.getElementById('agent-form-wrap').style.display = 'none';
-      document.getElementById('agent-success').style.display = 'block';
-    } else {
-      alert('Something went wrong. Please try again.');
-    }
-  } catch(err) {
-    alert('Something went wrong. Please try again.');
-  }
-});
-
-</script>
 </body>
 </html>
