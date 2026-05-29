@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TX Agent Page, Lock Rekeying Offer | HouseAccount</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-698D2S65FN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-698D2S65FN');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #133C55;
+  --navy-d: #0e2d40;
+  --blue: #6B9AB8;
+  --gold: #F5A623;
+  --gold-d: #d98d10;
+  --cream: #F2F5F7;
+  --white: #ffffff;
+  --text: #133C55;
+  --muted: #6b8699;
+  --border: #dce5ec;
+  --green: #12b76a;
+}
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, 'Segoe UI', sans-serif; background: var(--cream); color: var(--text); }
+
+/* ── NAV ── */
+.nav { background: var(--navy); padding: 18px 32px; display: flex; align-items: center; justify-content: center; }
+.nav img { height: 26px; }
+
+/* ── HERO ── */
+.hero { background: linear-gradient(150deg, var(--navy) 0%, #1b4d6b 100%); color: var(--white); text-align: center; padding: 60px 24px 72px; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 56px; background: var(--cream); clip-path: ellipse(55% 100% at 50% 100%); }
+.hero-pill { display: inline-block; background: rgba(107,154,184,0.2); border: 1px solid rgba(107,154,184,0.35); color: var(--blue); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; margin-bottom: 24px; }
+.hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; max-width: 620px; margin: 0 auto 16px; }
+.hero h1 span { color: var(--gold); }
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto; line-height: 1.65; }
+
+/* ── OFFER SUMMARY ── */
+.offer-summary { background: var(--cream); padding: 64px 24px; }
+.offer-summary-inner { max-width: 820px; margin: 0 auto; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+.section-title { font-size: clamp(22px, 3.5vw, 32px); font-weight: 700; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 40px; line-height: 1.2; }
+.offer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.offer-tile { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; }
+.offer-tile-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.offer-tile-icon svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.offer-tile h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.offer-tile p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.offer-tile.highlight { background: var(--navy); border-color: var(--navy); }
+.offer-tile.highlight .offer-tile-icon { background: rgba(255,255,255,0.1); }
+.offer-tile.highlight .offer-tile-icon svg { stroke: var(--gold); }
+.offer-tile.highlight h4 { color: var(--white); }
+.offer-tile.highlight p { color: rgba(255,255,255,0.6); }
+
+/* ── SHARE SECTION ── */
+.share { background: var(--white); padding: 64px 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.share-inner { max-width: 820px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+.share-left h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--navy); letter-spacing: -0.02em; margin-bottom: 10px; line-height: 1.25; }
+.share-left p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; }
+
+.url-box { background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 16px; font-size: 14px; font-weight: 600; color: var(--navy); word-break: break-all; margin-bottom: 12px; line-height: 1.5; }
+.url-box span { color: var(--muted); font-weight: 400; font-size: 12px; display: block; margin-bottom: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.copy-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--white); border: none; border-radius: 10px; padding: 13px 24px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.15s, transform 0.1s; width: 100%; justify-content: center; }
+.copy-btn:hover { background: var(--navy-d); }
+.copy-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.copy-confirm { display: block; text-align: center; font-size: 12px; color: var(--green); font-weight: 600; margin-top: 8px; height: 16px; opacity: 0; transition: opacity 0.2s; }
+.copy-confirm.show { opacity: 1; }
+
+.share-right { text-align: center; }
+.share-right h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+.qr-wrap { display: inline-block; background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 20px; margin-bottom: 12px; }
+.qr-wrap img { display: block; border-radius: 8px; width: 200px; height: 200px; }
+.qr-note { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.download-btn { display: inline-flex; align-items: center; gap: 7px; background: transparent; border: 1.5px solid var(--border); color: var(--navy); border-radius: 8px; padding: 9px 18px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; margin-top: 12px; transition: border-color 0.15s, background 0.15s; }
+.download-btn:hover { border-color: var(--navy); background: var(--cream); }
+.download-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── HOW TO SHARE ── */
+.how { background: var(--cream); padding: 64px 24px; }
+.how-inner { max-width: 820px; margin: 0 auto; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 36px; }
+.step { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 24px 20px; }
+.step-num { width: 32px; height: 32px; background: var(--navy); color: var(--white); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+.step h3 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.step p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── TRUSTED BY ── */
+.trusted { background: var(--white); padding: 48px 24px; border-top: 1px solid var(--border); }
+.trusted-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+.trusted-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+.trusted-logos { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 28px 36px; }
+.brand-logo { opacity: 0.5; transition: opacity 0.2s; display: flex; align-items: center; white-space: nowrap; }
+.brand-logo:hover { opacity: 0.8; }
+.logo-compass { font-family: -apple-system,'Helvetica Neue',Arial,sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #1a1a1a; }
+.logo-kw { display: inline-flex; align-items: center; gap: 6px; }
+.logo-kw-box { background: #B40101; color: #fff; font-size: 11px; font-weight: 900; padding: 3px 5px; border-radius: 2px; font-family: -apple-system,sans-serif; }
+.logo-kw-text { font-size: 8.5px; font-weight: 700; letter-spacing: 1px; line-height: 1.4; color: #1a1a1a; font-family: -apple-system,sans-serif; }
+.logo-side { font-family: -apple-system,'Helvetica Neue',Arial,sans-serif; font-size: 17px; font-weight: 800; color: #0d0d0d; }
+.logo-corcoran { font-family: 'Playfair Display','Georgia',serif; font-size: 15px; font-weight: 600; color: #1a1a1a; }
+.logo-sothebys { font-family: 'Cormorant Garamond','Palatino',serif; font-size: 9px; font-weight: 500; letter-spacing: 1.5px; line-height: 1.5; color: #1a1a1a; text-align: left; }
+
+/* ── FOOTER ── */
+.footer { background: var(--navy); padding: 32px 24px; text-align: center; }
+.footer img { height: 22px; margin-bottom: 10px; opacity: 0.7; }
+.footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+/* ── PRINT ── */
+@media print {
+  .nav, .hero, .offer-summary, .how, .footer, .copy-btn, .download-btn { display: none !important; }
+  .share { border: none; padding: 0; }
+  .share-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+  body { background: white; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  .hero { padding: 48px 20px 64px; }
+  .offer-summary { padding: 48px 20px; }
+  .share { padding: 48px 20px; }
+  .share-inner { grid-template-columns: 1fr; gap: 36px; }
+  .share-right { order: -1; }
+  .how { padding: 48px 20px; }
+  .trusted { padding: 36px 20px; }
+  .trusted-logos { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://tx-rekey.houseaccount.co" target="_blank">
+    <img src="https://cdn.prod.website-files.com/67c69ed7dd5666816747acc4/691e951396c94a7fdce7018b_HouseAccount%20Logoo.svg" alt="HouseAccount">
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pill">For real estate agents</div>
+  <h1>Give your clients a closing gift <span>they'll actually use.</span></h1>
+  <p class="hero-sub">Share this link with your buyers and they'll get up to $150 towards rekeying their locks — on you, powered by HouseAccount.</p>
+</section>
+
+<!-- OFFER SUMMARY -->
+<section class="offer-summary">
+  <div class="offer-summary-inner">
+    <div class="eyebrow">What your client gets</div>
+    <div class="section-title">Up to $150 towards rekeying your locks</div>
+    <div class="offer-grid">
+      <div class="offer-tile highlight">
+        <div class="offer-tile-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h4>Up to $150 towards rekeying your locks</h4>
+        <p>Professional installation included on both.</p>
+      </div>
+      <div class="offer-tile">
+        <div class="offer-tile-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <h4>Dedicated concierge</h4>
+        <p>A real person reaches out within 1 hour to schedule everything.</p>
+      </div>
+      <div class="offer-tile">
+        <div class="offer-tile-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Insured professionals</h4>
+        <p>Every pro is vetted, insured, and rated 4.5+ stars by real customers.</p>
+      </div>
+      <div class="offer-tile">
+        <div class="offer-tile-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Scheduled around the move</h4>
+        <p>Installation is booked around your client's move-in date, zero stress.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- AGENT SIGN-UP -->
+<section class="share" style="background:var(--cream);padding:64px 24px;">
+  <div style="max-width:520px;margin:0 auto;">
+
+    <!-- SHARE WITH BUYERS -->
+    <div style="background:#fff;border:1.5px solid #dde6ec;border-radius:16px;padding:28px 32px;margin-bottom:24px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6b8699;margin-bottom:14px;">Share this with your buyers</p>
+
+      <div style="background:var(--cream);border:1.5px solid #dde6ec;border-radius:10px;padding:14px 16px;margin-bottom:12px;">
+        <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b8699;margin-bottom:5px;">Text code</p>
+        <p style="font-size:16px;font-weight:700;color:var(--navy);">Text <strong>TX-REKEY</strong> to 267-262-5848</p>
+        <p style="font-size:12px;color:#6b8699;margin-top:3px;">Concierge responds within 1 hour</p>
+      </div>
+
+      <div style="background:var(--cream);border:1.5px solid #dde6ec;border-radius:10px;padding:14px 16px;margin-bottom:12px;">
+        <p style="font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b8699;margin-bottom:5px;">Sign-up link</p>
+        <p style="font-size:13px;font-weight:600;color:var(--navy);word-break:break-all;">https://tx-rekey.houseaccount.co
+      </div>
+
+      <button onclick="navigator.clipboard.writeText('TX-REKEY: Text TX-REKEY to 267-262-5848 or visit https://tx-rekey.houseaccount.co');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy sharing info',2000)" style="width:100%;padding:11px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">Copy sharing info</button>
+    </div>
+
+    <div class="eyebrow" style="text-align:center;margin-bottom:10px;">Get set up</div>
+    <h2 style="text-align:center;font-size:clamp(22px,3vw,30px);margin-bottom:8px;color:var(--navy);">Start offering this to your buyers</h2>
+    <p style="text-align:center;color:var(--muted);font-size:15px;line-height:1.65;margin-bottom:32px;">Fill in your info and a HouseAccount partner will reach out to get you set up. Takes 2 minutes.</p>
+
+    <div style="background:#fff;border:1.5px solid #dde6ec;border-radius:16px;padding:32px;">
+      <div id="agent-form-wrap">
+        <form id="agent-form" name="agent-signup-tx-rekey" data-netlify="true">
+          <input type="hidden" name="form-name" value="agent-signup-tx-rekey">
+          <input type="hidden" name="market" value="TX-REKEY">
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+            <div>
+              <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">First name</label>
+              <input type="text" name="first-name" placeholder="Jane" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
+            </div>
+            <div>
+              <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Last name</label>
+              <input type="text" name="last-name" placeholder="Smith" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Email</label>
+            <input type="email" name="email" placeholder="jane@brokerage.com" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
+          </div>
+
+          <div style="margin-bottom:14px;">
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Phone</label>
+            <input type="tel" name="phone" placeholder="(555) 000-0000" required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
+          </div>
+
+          <div style="margin-bottom:22px;">
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);margin-bottom:5px;">Brokerage</label>
+            <input type="text" name="brokerage" placeholder="Keller Williams, Compass, Side..." required style="width:100%;padding:11px 13px;border:1.5px solid #dde6ec;border-radius:8px;font-size:14px;color:var(--navy);outline:none;font-family:inherit;">
+          </div>
+
+          <button type="submit" style="width:100%;padding:15px;background:var(--navy);color:#fff;font-size:16px;font-weight:700;border:none;border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:.01em;">
+            Get me set up
+          </button>
+          <p style="text-align:center;font-size:12px;color:#aab8c2;margin-top:10px;">We'll reach out within 1 business day. No spam, ever.</p>
+        </form>
+      </div>
+      <div id="agent-success" style="display:none;text-align:center;padding:24px 0;">
+        <div style="font-size:32px;margin-bottom:12px;">&#10003;</div>
+        <h3 style="color:var(--navy);font-size:20px;margin-bottom:8px;">You're on the list!</h3>
+        <p style="color:var(--muted);font-size:15px;line-height:1.6;">A HouseAccount partner will reach out within 1 business day to get you set up with the TX rekey offer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<section class="trusted">
+  <div class="trusted-inner">
+    <div class="trusted-label">Trusted by agents at</div>
+    <div class="trusted-logos">
+
+      <!-- Compass -->
+      <div class="brand-logo">
+        <span class="logo-compass">COMPASS</span>
+      </div>
+
+      <!-- Keller Williams -->
+      <div class="brand-logo">
+        <span class="logo-kw">
+          <span class="logo-kw-box">KW</span>
+          <span class="logo-kw-text">KELLER<br>WILLIAMS</span>
+        </span>
+      </div>
+
+      <!-- Side -->
+      <div class="brand-logo">
+        <span class="logo-side">side</span>
+      </div>
+
+      <!-- Corcoran -->
+      <div class="brand-logo">
+        <span class="logo-corcoran">Corcoran</span>
+      </div>
+
+      <!-- Sotheby's International Realty -->
+      <div class="brand-logo">
+        <span class="logo-sothebys">SOTHEBY'S<br>INTERNATIONAL REALTY</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="https://cdn.prod.website-files.com/67c69ed7dd5666816747acc4/691e951396c94a7fdce7018b_HouseAccount%20Logoo.svg" alt="HouseAccount">
+  <p>Questions? hello@houseaccount.com &nbsp;·&nbsp; houseaccount.com</p>
+</footer>
+
+<!-- Netlify Forms detection -->
+<form name="agent-signup-tx-rekey" data-netlify="true" hidden>
+  <input name="name">
+  <input name="email">
+  <input name="brokerage">
+  <input name="phone">
+  <input name="source">
+</form>
+
+<script>
+// ── SINGLE SOURCE OF TRUTH, paste your Netlify URL here ──
+var OFFER_URL = 'https://tx-rekey.houseaccount.co/'
+// NOTE: update after Netlify deploy
+var _OFFER_URL_TMP = 'https://tx-rekey.houseaccount.co';
+
+document.getElementById('display-url').textContent = OFFER_URL;
+
+function copyLink() {
+  navigator.clipboard.writeText(OFFER_URL).then(function () {
+    var el = document.getElementById('copy-confirm');
+    el.classList.add('show');
+    setTimeout(function () { el.classList.remove('show'); }, 2000);
+  });
+}
+
+function downloadQR() {
+  var link = document.createElement('a');
+  link.download = 'houseaccount-tx-rekey-qr.png';
+  link.href = 'https://api.qrserver.com/v1/create-qr-code/?size=400x400&color=133C55&data=' + encodeURIComponent(OFFER_URL);
+  link.target = '_blank';
+  link.click();
+}
+
+
+document.getElementById('agent-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    });
+    if (res.ok) {
+      document.getElementById('agent-form-wrap').style.display = 'none';
+      document.getElementById('agent-success').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err) {
+    alert('Something went wrong. Please try again.');
+  }
+});
+
+</script>
+</body>
+</html>
